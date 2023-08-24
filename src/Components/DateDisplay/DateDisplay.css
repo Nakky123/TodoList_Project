@@ -1,0 +1,7 @@
+.dateTimeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  font-weight: bold;
+}
