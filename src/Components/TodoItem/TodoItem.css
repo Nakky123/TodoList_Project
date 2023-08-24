@@ -1,0 +1,49 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.editBtn,
+.completeBtn,
+.deleteBtn {
+  padding: 5px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editBtn {
+  background-color: var(--edit-color);
+  color: white;
+  margin-right: 10px;
+}
+
+.completeBtn {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.deleteBtn {
+  background-color: var(--delete-color);
+  color: white;
+  margin-left: 10px;
+}
+
+.editBtn:hover,
+.completeBtn:hover,
+.deleteBtn:hover {
+  background-color: var(--hover-color);
+}
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
