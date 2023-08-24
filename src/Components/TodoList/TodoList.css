@@ -49,3 +49,23 @@ body {
 .btn:hover {
   background-color: var(--add-color);
 }
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin: 20% auto;
+  }
+
+  .wrapper-2 {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .dateTimeContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .todoItem {
+    display: grid;
+  }
+  .text {
+    padding-bottom: 10px;
+  }
+}
