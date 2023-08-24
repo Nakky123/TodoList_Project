@@ -55,7 +55,7 @@ function TodoList() {
 
   return (
     <div>
-      <div className="todoList">
+      <main className="todoList">
         {todos.map((todo, index) => (
           <TodoItem
             key={index}
@@ -67,7 +67,7 @@ function TodoList() {
             handleExpandTodo={handleExpandTodo}
           />
         ))}
-      </div>
+      </main>
       <br />
       <div className="wrapper-2">
         <input
