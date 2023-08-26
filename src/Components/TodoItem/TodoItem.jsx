@@ -1,9 +1,11 @@
+import React from "react";
 import "./TodoItem.css";
+
 function TodoItem({
   todo,
-  index,
   handleEditTodo,
-  handleToggleComplete,
+  handleComplete,
+  handleUndo,
   handleDeleteTodo,
   handleExpandTodo,
 }) {
@@ -11,26 +13,28 @@ function TodoItem({
     <div className={`todoItem ${todo.completed ? "completed" : ""}`}>
       <span
         className={`text ${todo.expanded ? "expanded" : ""}`}
-        onClick={() => handleExpandTodo(index)}
+        onClick={() => handleExpandTodo(todo.id)}
         title={todo.text.length > 20 ? todo.text : ""}
       >
         {todo.expanded
           ? todo.text
-          : todo.text.length > 100
-          ? `${todo.text.slice(0, 100)}...`
+          : todo.text.length > 40
+          ? `${todo.text.slice(0, 40)}...`
           : todo.text}
       </span>
       <div className="buttons">
-        <button className="editBtn" onClick={() => handleEditTodo(index)}>
+        <button className="editBtn" onClick={() => handleEditTodo(todo.id)}>
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
         <button
           className="completeBtn"
-          onClick={() => handleToggleComplete(index)}
+          onClick={() =>
+            todo.completed ? handleUndo(todo.id) : handleComplete(todo.id)
+          }
         >
           {todo.completed ? "Undo" : "Complete"}
         </button>
-        <button className="deleteBtn" onClick={() => handleDeleteTodo(index)}>
+        <button className="deleteBtn" onClick={() => handleDeleteTodo(todo.id)}>
           <i className="fa-solid fa-trash"></i>
         </button>
       </div>

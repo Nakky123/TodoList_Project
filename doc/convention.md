@@ -4,11 +4,11 @@
   Example:
 
   ```jsx
-  import "./main.css";
+  import "./index.css";
   import App from "./App/App";
   ```
 
-- CSS reset is used to remove default style of the browser. CSS reset can be found in [main.css](/src/main.css).
+- CSS reset is used to remove default style of the browser. CSS reset can be found in [index.css]
 
 - Colors:
 

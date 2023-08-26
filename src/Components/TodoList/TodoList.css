@@ -1,3 +1,14 @@
+.search {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  padding: var(--padding-width);
+  border-radius: var(--border-radius);
+  transition: border-color 0.3s ease;
+}
+.search:focus {
+  outline: none;
+  flex-grow: 1;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,7 +16,10 @@ body {
   background-color: black;
   height: 200px;
 }
-
+.wrapper-3 {
+  display: flex;
+  gap: 10px;
+}
 .wrapper {
   background-color: #fff;
   border-radius: 10px;
@@ -14,9 +28,11 @@ body {
   padding: 20px;
   max-width: 550px;
 }
-
+.todoEnter:focus {
+  outline: none;
+}
 .header {
-  color: #333;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 20px;
 }
@@ -31,24 +47,38 @@ body {
 
 .todoEnter {
   flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: var(--padding-width);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
 }
 
 .btn {
-  padding: 10px 20px;
-  border: none;
+  padding: var(--padding-width) 20px;
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   cursor: pointer;
-  background-color: var(--add-color);
-  color: white;
+  background-color: transparent;
+  color: var(--text-color);
   transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: var(--add-color);
+  background-color: var(--hover-color);
 }
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search::placeholder {
+  padding-left: 5px;
+}
+
+.text {
+  flex-grow: 1;
+}
+
 @media screen and (max-width: 768px) {
   .wrapper {
     margin: 20% auto;
@@ -67,5 +97,17 @@ body {
   }
   .text {
     padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 468px) {
+  .wrapper-3 {
+    display: grid;
+  }
+  .search {
+    border: 1px solid #ccc;
+    width: 94%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: border-color 0.3s ease;
   }
 }
