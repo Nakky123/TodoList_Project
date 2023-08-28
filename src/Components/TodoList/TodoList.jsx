@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TodoItem from "../TodoItem/Todoitem";
 import "../TodoList/TodoList.css";
+import DateDisplay from "../DateDisplay/DateDisplay";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -89,49 +90,53 @@ function TodoList() {
 
   return (
     <div>
-      <div className="wrapper-2">
-        <input
-          type="text"
-          placeholder="Enter a Todo..."
-          className="todoEnter"
-          value={currentTodo}
-          onChange={handleTodoChange}
-          onKeyDown={handleKeyDown}
-        />
-        <button className="btn" onClick={handleAddTodo}>
-          {editId === null ? "Add" : "Save"}
-        </button>
-      </div>
-      <div className="wrapper-3">
-        <button className="btn" onClick={() => setFilter("All")}>
-          Todo
-        </button>
-        <button className="btn" onClick={() => setFilter("Doing")}>
-          Doing
-        </button>
-        <button className="btn" onClick={() => setFilter("Complete")}>
-          Complete
-        </button>
-        <input
-          type="text"
-          className="search"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-      </div>
-      <div className="todoList">
-        {searchedTodo.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleEditTodo={() => handleEditTodo(todo.id)}
-            handleComplete={() => handleComplete(todo.id)}
-            handleUndo={() => handleUndo(todo.id)}
-            handleDeleteTodo={() => handleDeleteTodo(todo.id)}
-            handleExpandTodo={() => handleExpandTodo(todo.id)}
+      <div className="wrapper">
+        <DateDisplay />
+        <h1 className="header">Todo List</h1>
+        <div className="wrapper-2">
+          <input
+            type="text"
+            placeholder="Enter a Todo..."
+            className="todoEnter"
+            value={currentTodo}
+            onChange={handleTodoChange}
+            onKeyDown={handleKeyDown}
           />
-        ))}
+          <button className="btn" onClick={handleAddTodo}>
+            {editId === null ? "Add" : "Save"}
+          </button>
+        </div>
+        <div className="wrapper-3">
+          <button className="btn" onClick={() => setFilter("All")}>
+            Todo
+          </button>
+          <button className="btn" onClick={() => setFilter("Doing")}>
+            Doing
+          </button>
+          <button className="btn" onClick={() => setFilter("Complete")}>
+            Complete
+          </button>
+          <input
+            type="text"
+            className="search"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+        <div className="todoList">
+          {searchedTodo.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              handleEditTodo={() => handleEditTodo(todo.id)}
+              handleComplete={() => handleComplete(todo.id)}
+              handleUndo={() => handleUndo(todo.id)}
+              handleDeleteTodo={() => handleDeleteTodo(todo.id)}
+              handleExpandTodo={() => handleExpandTodo(todo.id)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

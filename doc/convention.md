@@ -5,19 +5,19 @@
 
   ```jsx
   import "./index.css";
-  import App from "./App/App";
+  import App from "./App";
   ```
 
 - CSS reset is used to remove default style of the browser. CSS reset can be found in [index.css]
 
 - Colors:
 
-  - --add-color: #0073ee;
-  - --hover-color: #ffab00;
-  - --success-color: #28a745;
-  - --delete-color: #dc3545;
-  - --edit-color: #ffc107;
-  - --border-radius: 5px;
+  - --border-color: #4e565f;
+  - --hover-color: gray;
+  - --border-radius: 20px;
+  - --roboto: "Roboto", sans-serif;
+  - --padding-width: 10px;
+  - --text-color: black;
 
 - Font:
 
@@ -92,7 +92,7 @@
 
   ```html
   <!-- This is right -->
-  <section>...</section>
+  <main>...</main>
   ```
 
 - Use as many semantic tags as possible. Some of the semantic tags are:

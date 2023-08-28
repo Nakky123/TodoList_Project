@@ -96,18 +96,20 @@ body {
     display: grid;
   }
   .text {
-    padding-bottom: 10px;
+    padding: 10px;
   }
 }
 @media screen and (max-width: 468px) {
   .wrapper-3 {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
   .search {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     width: 94%;
     padding: 10px;
     border-radius: var(--border-radius);
     transition: border-color 0.3s ease;
+    grid-column-start: span 3;
   }
 }
