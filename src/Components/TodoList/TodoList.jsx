@@ -3,7 +3,7 @@ import TodoItem from "../TodoItem/Todoitem";
 import "../TodoList/TodoList.css";
 import DateDisplay from "../DateDisplay/DateDisplay";
 
-function TodoList() {
+function TodoList({ indexId, setIndex }) {
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem("ITEMS");
     if (localValue === null) return [];
@@ -36,15 +36,33 @@ function TodoList() {
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      handleAddTodo();
+  const handleEditTodo = (id) => {
+    const editedTodo = todos.find((todo) => todo.id === id);
+    if (editedTodo) {
+      setCurrentTodo(editedTodo.text);
+      setEditId(id);
     }
   };
 
-  const handleEditTodo = (id) => {
-    setCurrentTodo(todos.find((todo) => todo.id === id).text);
-    setEditId(id);
+  const handleSaveEdit = () => {
+    if (editId !== null) {
+      const updatedTodos = todos.map((todo) =>
+        todo.id === editId ? { ...todo, text: currentTodo } : todo
+      );
+      setTodos(updatedTodos);
+      setCurrentTodo("");
+      setEditId(null);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (editId !== null) {
+        handleSaveEdit();
+      } else {
+        handleAddTodo();
+      }
+    }
   };
 
   const handleComplete = (id) => {
@@ -90,6 +108,8 @@ function TodoList() {
     t.text.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const titleBtn = ["All", "Doing", "Done"];
+
   return (
     <div>
       <div className="wrapper">
@@ -104,20 +124,25 @@ function TodoList() {
             onChange={handleTodoChange}
             onKeyDown={handleKeyDown}
           />
-          <button className="btn" onClick={handleAddTodo}>
+          <button
+            className="btn"
+            onClick={editId === null ? handleAddTodo : handleSaveEdit}
+          >
             {editId === null ? "Add" : "Save"}
           </button>
         </div>
         <div className="wrapper-3">
-          <button className="btn" onClick={() => setFilter("All")}>
-            Todo
-          </button>
-          <button className="btn" onClick={() => setFilter("Doing")}>
-            Doing
-          </button>
-          <button className="btn" onClick={() => setFilter("Complete")}>
-            Complete
-          </button>
+          {titleBtn.map((btn, index) => (
+            <button
+              className={index === indexId ? "btn btn-active" : "btn"}
+              onClick={() => {
+                setFilter(btn);
+                setIndex(index);
+              }}
+            >
+              {btn}
+            </button>
+          ))}
           <input
             type="text"
             className="search"
