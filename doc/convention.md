@@ -101,3 +101,23 @@
   - `<footer>`
   - `<main>`
   - `<nav>`
+
+# Roots
+
+- You can change all the Border color and everything in the App in index.css
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+:root {
+  --border-color: #4e565f;
+  --hover-color: gray;
+  --border-radius: 20px;
+  --roboto: "Roboto", sans-serif;
+  --padding-width: 10px;
+  --text-color: black;
+}
+* {
+  font-family: var(--roboto);
+}
+```

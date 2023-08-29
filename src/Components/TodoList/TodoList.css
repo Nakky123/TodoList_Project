@@ -9,6 +9,11 @@
   outline: none;
   flex-grow: 1;
 }
+
+.btn.btn-active {
+  background-color: var(--hover-color);
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
