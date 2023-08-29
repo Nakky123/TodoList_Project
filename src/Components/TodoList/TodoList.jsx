@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoItem from "../TodoItem/Todoitem";
 import "../TodoList/TodoList.css";
 import DateDisplay from "../DateDisplay/DateDisplay";
 
 function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    if (localValue === null) return [];
+    return JSON.parse(localValue);
+  });
   const [currentTodo, setCurrentTodo] = useState("");
   const [editId, setEditId] = useState(null);
   const [filtered, setFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos));
+  }, [todos]);
 
   const handleTodoChange = (event) => {
     setCurrentTodo(event.target.value);
@@ -16,20 +24,14 @@ function TodoList() {
 
   const handleAddTodo = () => {
     if (currentTodo.trim() !== "") {
-      if (editId !== null) {
-        const updatedTodos = [...todos];
-        const todoIndex = updatedTodos.findIndex((todo) => todo.id === editId);
-        if (todoIndex !== -1) {
-          updatedTodos[todoIndex].text = currentTodo;
-          setTodos(updatedTodos);
-          setEditId(null);
-        }
-      } else {
-        setTodos([
-          ...todos,
-          { id: Date.now(), text: currentTodo, completed: false },
-        ]);
-      }
+      const newTodo = {
+        id: Date.now(),
+        text: currentTodo,
+        completed: false,
+        expanded: false,
+      };
+
+      setTodos((prevTodos) => [...prevTodos, newTodo]);
       setCurrentTodo("");
     }
   };
