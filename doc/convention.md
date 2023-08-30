@@ -14,16 +14,20 @@
 
   - --border-color: #4e565f;
   - --hover-color: gray;
-  - --border-radius: 20px;
-  - --roboto: "Roboto", sans-serif;
-  - --padding-width: 10px;
   - --text-color: black;
 
 - Font:
 
-  - font-family: var(--roboto);
+  - --roboto: "Roboto", sans-serif;
 
 - No inline CSS
+
+- Padding
+
+  - --padding-y: 10px;
+
+- Border Radius
+  - --border-radius: 20px;
 
 # Project structure
 
@@ -107,15 +111,18 @@
 - You can change all the Border color and everything in the App in index.css
 
 ```css
+/* Font family Roboto */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+/* Font Awesome */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 :root {
   --border-color: #4e565f;
   --hover-color: gray;
   --border-radius: 20px;
   --roboto: "Roboto", sans-serif;
-  --padding-width: 10px;
+  --padding-y: 10px;
   --text-color: black;
+  --text-size: 18px;
 }
 * {
   font-family: var(--roboto);
