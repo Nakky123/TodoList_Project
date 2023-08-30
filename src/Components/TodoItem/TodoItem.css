@@ -6,7 +6,7 @@
 .editBtn,
 .completeBtn,
 .deleteBtn {
-  padding: var(--padding-width) 20px;
+  padding: var(--padding-y) 20px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: white;

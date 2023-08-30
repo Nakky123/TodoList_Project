@@ -52,13 +52,13 @@ body {
 
 .todoEnter {
   flex-grow: 1;
-  padding: var(--padding-width);
+  padding: var(--padding-y);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
 }
 
 .btn {
-  padding: var(--padding-width) 20px;
+  padding: var(--padding-y) 20px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -82,13 +82,14 @@ body {
 
 .text {
   flex-grow: 1;
+  font-size: var(--text-size);
+  word-break: break-all;
+  padding-top: 10px;
 }
-
+.todoItem {
+  gap: 15px;
+}
 @media screen and (max-width: 768px) {
-  .wrapper {
-    margin: 20% auto;
-  }
-
   .wrapper-2 {
     gap: 10px;
     margin-bottom: 10px;
@@ -102,6 +103,7 @@ body {
   }
   .text {
     padding: 10px;
+    font-size: var(--text-size);
   }
 }
 @media screen and (max-width: 468px) {
@@ -116,5 +118,16 @@ body {
     border-radius: var(--border-radius);
     transition: border-color 0.3s ease;
     grid-column-start: span 3;
+  }
+  .wrapper {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .text {
+    font-size: var(--text-size);
+  }
+  body {
+    background-color: white;
   }
 }
