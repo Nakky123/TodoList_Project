@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
 }
-
+.completed > .text {
+  text-decoration: line-through;
+}
 .editBtn,
 .completeBtn,
 .deleteBtn {

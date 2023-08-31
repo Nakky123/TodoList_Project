@@ -108,8 +108,6 @@
 
 # Roots
 
-- You can change all the Border color and everything in the App in index.css
-
 ```css
 /* Font family Roboto */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
@@ -128,3 +126,22 @@
   font-family: var(--roboto);
 }
 ```
+
+# Grid & Flex
+
+## Use Grid When
+
+- Complex Layouts: CSS Grid is particularly powerful for creating complex two-dimensional layouts. If your design involves both rows and columns with varying sizes and alignment needs, CSS Grid is a great choice.
+- Grid-like Structures: When you need to create a true grid structure with consistent gutters and a clear relationship between items, CSS Grid is more intuitive and efficient.
+- Layout Control: CSS Grid offers fine-grained control over the placement of items, making it suitable for creating magazine-like layouts, dashboard designs, and any other layout that requires precise control.
+- Overlapping Items: If you need items to overlap each other, CSS Grid provides a simple way to achieve this effect, which can be tricky to do with Flexbox.
+- Responsive by Default: CSS Grid allows you to create responsive layouts without relying heavily on media queries. You can use features like fractional units and minmax() to create flexible grids that adapt to different screen sizes.
+
+## Use Flexbox when
+
+- One-Dimensional Layouts: Flexbox is best for arranging items in a single dimension — either as rows or columns. It excels at distributing space along the main axis while handling alignment along the cross axis.
+- Equal Height Columns: If you want columns to have equal heights regardless of their content, Flexbox can help you achieve this effect without using additional tricks.
+- Content Order: Flexbox allows you to change the order of items visually without affecting the source order in the HTML. This is useful for creating responsive designs where the order of content should change based on screen size.
+- Alignment and Distribution: Flexbox is excellent for aligning items both horizontally and vertically, as well as distributing space between them along the main axis.
+- Simple Component Layouts: When dealing with simpler components like navigation bars, cards, or buttons, Flexbox is often more straightforward and requires less code than CSS Grid.
+- Fluid Resizing: If you want items to dynamically resize to accommodate varying content, Flexbox flexibility can be more suitable.
