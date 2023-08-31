@@ -60,5 +60,3 @@ I used 3 main branch for my project :
 - `develop` branch: it is where ongoing development and integration of new features occur. It's a branch from which feature branches are created and merged back once the features are complete.
 
 - `feature` branch: for each new feature, a dedicated feature branch was created from the develop branch. Feature branches are where the actual coding takes place. To create a feature branch.
-
-- ``
