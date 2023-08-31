@@ -1,0 +1,52 @@
+.buttons {
+  display: flex;
+  align-items: center;
+}
+.completed > .text {
+  text-decoration: line-through;
+}
+.editBtn,
+.completeBtn,
+.deleteBtn {
+  padding: var(--padding-y) 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editBtn {
+  color: var(--text-color);
+  margin-right: 10px;
+}
+
+.completeBtn {
+  color: var(--text-color);
+}
+
+.deleteBtn {
+  color: var(--text-color);
+  margin-left: 10px;
+}
+
+.editBtn:hover,
+.completeBtn:hover,
+.deleteBtn:hover {
+  background-color: var(--hover-color);
+}
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 768px) {
+  .editBtn:hover,
+  .completeBtn:hover,
+  .deleteBtn:hover {
+    background-color: transparent;
+  }
+}
