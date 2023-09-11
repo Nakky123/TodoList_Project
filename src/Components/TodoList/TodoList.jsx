@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import TodoItem from "../TodoItem/Todoitem";
 import "../TodoList/TodoList.css";
-import DateDisplay from "../DateDisplay/DateDisplay";
+
 
 function TodoList({ indexId, setIndex }) {
   const [todos, setTodos] = useState(() => {
